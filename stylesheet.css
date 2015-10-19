@@ -1,0 +1,57 @@
+#myCanvas
+{
+    background: url(images/jungle.jpg); 
+    z-index: -1; 
+}
+body
+{
+    background-image: url(images/jungleBackground.jpg);
+    background-size: cover;
+    
+}
+#canvas
+{
+    position: fixed;
+    top: 25%;
+    left: 33%;   
+}
+#title
+{
+    color: gold;
+    text-align: center;
+    text-shadow: -2px 0 black, 2px 0 black, 2px 0 black, -2px 0 black
+}
+#Characters
+{
+    color:  rgb(219, 0, 85);
+    text-underline-position: below;
+}
+#score
+{
+    color:  rgb(219, 0, 85);
+}
+#characterText
+{
+/*    text-align: center;*/
+    position: absolute;
+    top: 39%;
+    left: 44%;
+    color: rebeccapurple;
+    z-index: 1;
+}
+#hard
+{
+}
+#levelUnlocked
+{
+    position: absolute;
+    top: 39%;
+    left: 39%;
+    color: rebeccapurple;
+    visibility: hidden;
+   
+}
+@keyframes play {
+   from { background-position: 0px; }
+     to { background-position: -555000px; }
+}
