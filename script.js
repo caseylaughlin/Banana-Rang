@@ -16,11 +16,11 @@
                     var held = true;
                     var evilMonkeyHeight = 50;
                     var evilMonkeyWidth = 50;
-                    var score = 0;
+var score = 0;
                     var evilMonkeyPosX = Math.floor((Math.random()*350 - evilMonkeyWidth) + 350);
                     var evilMonkeyPosY = Math.floor(Math.random()*330 - evilMonkeyHeight) + monkeyHeight;
-
-
+                    var evilVisibleMonkey = true;
+                    var hardButton = document.getElementById("hard");
         
                     
                     var bananna = new Image();
@@ -132,7 +132,7 @@ function moveEvilMonkey(evilMonkeyPosX, evilMonkeyPosY)
             return setInterval(draw2, 3);
             }
         function draw2()         //this animates the square
-        {
+            {
             clear();
             drawBorder();
             playerMonkey(monkeyPosX, monkeyPosY);
