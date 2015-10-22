@@ -65,10 +65,7 @@ function monkeySportMonkey()
             {
             ctx.drawImage(monkey, monkeyPosX, monkeyPosY);
             }     
-        function makeEvilMonkey(evilMonkeyPosX, evilMonkeyPosY)
-            {
-            ctx.drawImage(evilMonkey, evilMonkeyPosX, evilMonkeyPosY);
-            }
+
 function moveEvilMonkey(evilMonkeyPosX, evilMonkeyPosY)
 {
     ctx.drawImage(evilMonkey, evilMonkeyPosX, evilMonkeyPosY)
