@@ -19,8 +19,8 @@
 var score = 0;
                     var evilMonkeyPosX = Math.floor((Math.random()*350 - evilMonkeyWidth) + 350);
                     var evilMonkeyPosY = Math.floor(Math.random()*330 - evilMonkeyHeight) + monkeyHeight;
-                    var evilVisibleMonkey = true;
-                    var hardButton = document.getElementById("hard");
+                    //var evilVisibleMonkey = true;
+                    //var hardButton = document.getElementById("hard");
         
                     
                     var bananna = new Image();
@@ -34,7 +34,7 @@ var score = 0;
 
 function monkeyDorkMonkey()
 {
-   
+
     monkey = new Image();
     monkey.src = "images/dorkMonkey.png";
     document.getElementById("characterText").style.zIndex = "-2";
@@ -48,7 +48,7 @@ function monkeyBuffMonkey()
 }
 function monkeySportMonkey()
 {
-   
+
     monkey = new Image();
     monkey.src = "images/sportMonkey.jpg";
     document.getElementById("characterText").style.zIndex = "-2";
@@ -84,19 +84,16 @@ function moveEvilMonkey(evilMonkeyPosX, evilMonkeyPosY)
                 my = -my;
                 
             //playerMonkey 
-            if (
-                (y + my >= evilMonkeyPosY - banannaHeight &&
-                 y + my <= evilMonkeyPosY + evilMonkeyHeight) &&
-                (x + mx == evilMonkeyPosX - banannaWidth || 
-                 x + mx == evilMonkeyPosX + evilMonkeyWidth))
-                    {
-                    evilMonkeyPosX = Math.floor((Math.random()*350 - evilMonkeyWidth) + 350);
-                    evilMonkeyPosY = Math.floor(Math.random()*310 - evilMonkeyHeight) + evilMonkeyHeight;
-                    mx = -mx;
-                    makeEvilMonkey1();
+                if (y + my >= evilMonkeyPosY - banannaHeight && y + my <= evilMonkeyPosY + evilMonkeyHeight) {
+                    if ((x + mx == evilMonkeyPosX - banannaWidth || x + mx == evilMonkeyPosX + evilMonkeyWidth)) {
+                        evilMonkeyPosX = Math.floor((Math.random() * 350 - evilMonkeyWidth) + 350);
+                        evilMonkeyPosY = Math.floor(Math.random() * 310 - evilMonkeyHeight) + evilMonkeyHeight;
+                        mx = -mx;
+                        makeEvilMonkey1();
                         score++;
                         document.getElementById("score").innerHTML = "Your score: " + score;
                     }
+                }
             if (   
                 (y + my >= monkeyPosY - banannaHeight &&  
                  y + my <= monkeyPosY + monkeyHeight) && 
@@ -171,15 +168,14 @@ function moveEvilMonkey(evilMonkeyPosX, evilMonkeyPosY)
             }
 function gameChanger()
 {
- if(score === 1)
- {
-    document.getElementById("hard").style.visibility = "visible";
-     document.getElementById("levelUnlocked").style.zIndex = "3";
-    document.getElementById("levelUnlocked").style.visibility = "visible";
-    setTimeout("levelUnlocked", 5000);
-     document.getElementById("levelUnlocked").style.visibility = "hidden";
-    return;
- }
+    if (score !== 1) {
+    } else {
+        document.getElementById("hard").style.visibility = "visible";
+        document.getElementById("levelUnlocked").style.zIndex = "3";
+        document.getElementById("levelUnlocked").style.visibility = "visible";
+        document.getElementById("levelUnlocked").style.visibility = "hidden";
+
+    }
     
 }
 function makeEvilMonkey1()
