@@ -1,6 +1,6 @@
                     var canvas;
                     var ctx;
-                    var mx = 1;
+                    var mx = 3;
                     var my = 1;
                     var screenWidth = 700;
                     var screenHeight = 350;
@@ -64,12 +64,12 @@ function monkeySportMonkey()
         function playerMonkey(monkeyPosX, monkeyPosY)
             {
             ctx.drawImage(monkey, monkeyPosX, monkeyPosY);
-            }     
+            }
 
 function moveEvilMonkey(evilMonkeyPosX, evilMonkeyPosY)
 {
     ctx.drawImage(evilMonkey, evilMonkeyPosX, evilMonkeyPosY)
-         
+
 }
 
 
@@ -87,7 +87,7 @@ function moveEvilMonkey(evilMonkeyPosX, evilMonkeyPosY)
             if (
                 (y + my >= evilMonkeyPosY - banannaHeight &&
                  y + my <= evilMonkeyPosY + evilMonkeyHeight) &&
-                (x + mx == evilMonkeyPosX - banannaWidth || 
+                (x + mx == evilMonkeyPosX - banannaWidth ||
                  x + mx == evilMonkeyPosX + evilMonkeyWidth))
                     {
                     evilMonkeyPosX = Math.floor((Math.random()*350 - evilMonkeyWidth) + 350);
@@ -125,11 +125,12 @@ function moveEvilMonkey(evilMonkeyPosX, evilMonkeyPosY)
             }
         function init2()
             {
+            requestAnimationFrame(init2);
             document.getElementById("button").style.visibility = "visible";
             document.getElementById("hard").style.visibility = "hidden";
             canvas = document.getElementById("myCanvas");
             ctx = canvas.getContext("2d");
-            return setInterval(draw2, 1);
+            return draw2();
             }
         function draw2()       //this animates the square
             {
@@ -177,9 +178,7 @@ function gameChanger()
     document.getElementById("hard").style.visibility = "visible";
      document.getElementById("levelUnlocked").style.zIndex = "3";
     document.getElementById("levelUnlocked").style.visibility = "visible";
-    setTimeout("levelUnlocked", 5000);
      document.getElementById("levelUnlocked").style.visibility = "hidden";
-    return;
  }
     
 }
