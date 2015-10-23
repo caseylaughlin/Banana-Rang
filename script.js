@@ -107,7 +107,6 @@ function moveEvilMonkey(evilMonkeyPosX, evilMonkeyPosY)
                     
                     mx = -mx;    
      			    }
-                
             }
 
         function clear()        //this clears the canvas
@@ -116,12 +115,13 @@ function moveEvilMonkey(evilMonkeyPosX, evilMonkeyPosY)
             }
 
         function init()         //this calls the draw() function every 10ms
-            {
+        {
+            requestAnimationFrame(init);
             document.getElementById("hard").style.visibility = "visible";    
             document.getElementById("button").style.visibility = "hidden";
             canvas = document.getElementById("myCanvas");
             ctx = canvas.getContext("2d");
-            return setInterval(draw, 3);
+            return draw();
             }
         function init2()
             {
@@ -129,7 +129,7 @@ function moveEvilMonkey(evilMonkeyPosX, evilMonkeyPosY)
             document.getElementById("hard").style.visibility = "hidden";
             canvas = document.getElementById("myCanvas");
             ctx = canvas.getContext("2d");
-            return setInterval(draw2, 3);
+            return setInterval(draw2, 1);
             }
         function draw2()       //this animates the square
             {
@@ -138,7 +138,7 @@ function moveEvilMonkey(evilMonkeyPosX, evilMonkeyPosY)
             playerMonkey(monkeyPosX, monkeyPosY);
             banannaS(x, y);
             makeEvilMonkey1();
-                requestAnimationFrame(draw2);
+
             
             if(held === false)
                 {
@@ -163,7 +163,6 @@ function moveEvilMonkey(evilMonkeyPosX, evilMonkeyPosY)
             banannaS(x, y);
             makeEvilMonkey1();
             gameChanger();
-                requestAnimationFrame(draw);
             
             if(held === false)
                 {
