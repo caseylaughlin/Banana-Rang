@@ -131,13 +131,14 @@ function moveEvilMonkey(evilMonkeyPosX, evilMonkeyPosY)
             ctx = canvas.getContext("2d");
             return setInterval(draw2, 3);
             }
-        function draw2()         //this animates the square
+        function draw2()       //this animates the square
             {
             clear();
             drawBorder();
             playerMonkey(monkeyPosX, monkeyPosY);
             banannaS(x, y);
             makeEvilMonkey1();
+                requestAnimationFrame(draw2);
             
             if(held === false)
                 {
@@ -162,6 +163,7 @@ function moveEvilMonkey(evilMonkeyPosX, evilMonkeyPosY)
             banannaS(x, y);
             makeEvilMonkey1();
             gameChanger();
+                requestAnimationFrame(draw);
             
             if(held === false)
                 {
