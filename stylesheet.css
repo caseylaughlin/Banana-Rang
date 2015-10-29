@@ -1,19 +1,19 @@
 #myCanvas
 {
-    background: url(images/jungle.jpg); 
-    z-index: -1; 
+    background: url(images/jungle.jpg);
+    z-index: -1;
 }
 body
 {
     background-image: url(images/jungleBackground.jpg);
     background-size: cover;
-    
+
 }
 #canvas
 {
     position: fixed;
     top: 25%;
-    left: 33%;   
+    left: 33%;
 }
 #title
 {
@@ -32,7 +32,7 @@ body
 }
 #characterText
 {
-/*    text-align: center;*/
+    /*    text-align: center;*/
     position: absolute;
     top: 39%;
     left: 44%;
@@ -49,9 +49,9 @@ body
     left: 39%;
     color: rebeccapurple;
     visibility: hidden;
-   
+
 }
 @keyframes play {
-   from { background-position: 0px; }
-     to { background-position: -555000px; }
+    from { background-position: 0px; }
+    to { background-position: -555000px; }
 }
