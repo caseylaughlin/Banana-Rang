@@ -19,8 +19,8 @@ var evilMonkeyWidth = 50;
 var score = 0;
 var evilMonkeyPosX = Math.floor((Math.random()*350 - evilMonkeyWidth) + 350);
 var evilMonkeyPosY = Math.floor(Math.random()*330 - evilMonkeyHeight) + monkeyHeight;
-var evilVisibleMonkey = true;
-var hardButton = document.getElementById("hard");
+var level1 = true;
+var level2 = true;
 
 
 var bananna = new Image();
@@ -116,21 +116,33 @@ function clear()        //this clears the canvas
 
 function init()         //this calls the draw() function every 10ms
 	{
-	requestAnimationFrame(init);
-	document.getElementById("hard").style.visibility = "visible";
-	document.getElementById("button").style.visibility = "hidden";
-	canvas = document.getElementById("myCanvas");
-	ctx = canvas.getContext("2d");
-	return draw();
+	level2 = false;
+	level1 = true;
+	if(level1)
+		{
+
+		requestAnimationFrame(init);
+		document.getElementById("hard").style.visibility = "visible";
+		document.getElementById("button").style.visibility = "hidden";
+		canvas = document.getElementById("myCanvas");
+		ctx = canvas.getContext("2d");
+		draw();
+		}
 	}
 function init2()
 	{
-	requestAnimationFrame(init2);
-	document.getElementById("button").style.visibility = "visible";
-	document.getElementById("hard").style.visibility = "hidden";
-	canvas = document.getElementById("myCanvas");
-	ctx = canvas.getContext("2d");
-	return draw2();
+	level1 = false;
+	level2 = true;
+	if(level2)
+		{
+
+		requestAnimationFrame(init2);
+		document.getElementById("button").style.visibility = "visible";
+		document.getElementById("hard").style.visibility = "hidden";
+		canvas = document.getElementById("myCanvas");
+		ctx = canvas.getContext("2d");
+		draw2();
+		}
 	}
 function draw2()       //this animates the square
 	{
