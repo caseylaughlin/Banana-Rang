@@ -1,6 +1,6 @@
 var canvas;
 var ctx;
-var mx = 3;
+var mx = 1;
 var my = 1;
 var screenWidth = 700;
 var screenHeight = 350;
@@ -19,14 +19,13 @@ var evilMonkeyWidth = 50;
 var score = 0;
 var evilMonkeyPosX = Math.floor((Math.random()*350 - evilMonkeyWidth) + 350);
 var evilMonkeyPosY = Math.floor(Math.random()*330 - evilMonkeyHeight) + monkeyHeight;
-var level1 = true;
-var level2 = true;
+var level1 = false;
+var level2 = false;
 
 
 var bananna = new Image();
 bananna.src = "images/bananna.png";
-var evilMonkey = new Image();
-evilMonkey.src = "images/evilMonkey.png";
+
 
 
 
@@ -68,6 +67,17 @@ function playerMonkey(monkeyPosX, monkeyPosY)
 
 function moveEvilMonkey(evilMonkeyPosX, evilMonkeyPosY)
 	{
+	chooseEvilMonkeyImage = Math.floor(Math.random()*1)+1;
+	if(chooseEvilMonkeyImage === 1)
+		{
+		evilMonkey = new Image();
+		evilMonkey.src = "images/evilMonkey.png";
+		}
+	else if(chooseEvilMonkeyImage === 2)
+		{
+		evilMonkey = new Image();
+		evilMonkey.src = "images/monkeyBoss.jpeg";
+		}
 	ctx.drawImage(evilMonkey, evilMonkeyPosX, evilMonkeyPosY)
 
 	}
@@ -116,73 +126,85 @@ function clear()        //this clears the canvas
 
 function init()         //this calls the draw() function every 10ms
 	{
-	level2 = false;
+
 	level1 = true;
 	if(level1)
 		{
+		level2 = false;
 
 		requestAnimationFrame(init);
 		document.getElementById("hard").style.visibility = "visible";
 		document.getElementById("button").style.visibility = "hidden";
 		canvas = document.getElementById("myCanvas");
 		ctx = canvas.getContext("2d");
-		draw();
+		return draw();
 		}
 	}
 function init2()
 	{
-	level1 = false;
+
 	level2 = true;
 	if(level2)
 		{
+		level1 = false;
 
 		requestAnimationFrame(init2);
-		document.getElementById("button").style.visibility = "visible";
 		document.getElementById("hard").style.visibility = "hidden";
 		canvas = document.getElementById("myCanvas");
 		ctx = canvas.getContext("2d");
-		draw2();
+		return draw2();
 		}
-	}
-function draw2()       //this animates the square
-	{
-	clear();
-	drawBorder();
-	playerMonkey(monkeyPosX, monkeyPosY);
-	banannaS(x, y);
-	makeEvilMonkey1();
-
-
-	if(held === false)
-		{
-		x+=mx;
-		}
-	if(evilMonkeyPosY > screenHeight - evilMonkeyHeight)
-		{
-		my = -my;
-		}
-	if(evilMonkeyPosY < 0)
-		{
-		my = -my;
-		}
-	evilMonkeyPosY+=my;
-
 	}
 function draw()         //this animates the square
 	{
-	clear();
-	drawBorder();
-	playerMonkey(monkeyPosX, monkeyPosY);
-	banannaS(x, y);
-	makeEvilMonkey1();
-	gameChanger();
-
-	if(held === false)
+	level2 = false;
+	if(level1)
 		{
-		x+=mx;
+
+		clear();
+		drawBorder();
+		playerMonkey(monkeyPosX, monkeyPosY);
+		banannaS(x, y);
+		makeEvilMonkey1();
+		gameChanger();
+
+		if (held === false)
+			{
+			x += mx;
+			}
 		}
 
 	}
+function draw2()       //this animates the square
+	{
+	level1 = false;
+	if(level2)
+		{
+
+		clear();
+		drawBorder();
+		playerMonkey(monkeyPosX, monkeyPosY);
+		banannaS(x, y);
+		makeEvilMonkey1();
+
+
+		if (held === false)
+			{
+			x += mx;
+			}
+		if (evilMonkeyPosY > screenHeight - evilMonkeyHeight)
+			{
+			my = - my;
+			}
+		if (evilMonkeyPosY < 0)
+			{
+			my = - my;
+			}
+		evilMonkeyPosY += my;
+		}
+
+	}
+
 function gameChanger()
 	{
 	if(score === 1)
@@ -196,6 +218,7 @@ function gameChanger()
 	}
 function makeEvilMonkey1()
 	{
+
 	moveEvilMonkey(evilMonkeyPosX, evilMonkeyPosY);
 	}
 
