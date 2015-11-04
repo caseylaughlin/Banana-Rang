@@ -26,10 +26,20 @@ var level2 = false;
 var bananna = new Image();
 bananna.src = "images/bananna.png";
 
-
-
-
-
+//chooseEvilMonkeyImage = Math.floor(Math.random()*2)+1;
+//if(chooseEvilMonkeyImage === 1)
+//	{
+//	alert(1);
+//	evilMonkey = new Image();
+//	evilMonkey.src = "images/monkeyBoss.png";
+//
+//	}
+//else if(chooseEvilMonkeyImage === 2)
+//	{
+//	alert(2);
+	evilMonkey = new Image();
+	evilMonkey.src = "images/evilMonkey.png";
+	//}
 
 function monkeyDorkMonkey()
 	{
@@ -67,17 +77,7 @@ function playerMonkey(monkeyPosX, monkeyPosY)
 
 function moveEvilMonkey(evilMonkeyPosX, evilMonkeyPosY)
 	{
-	chooseEvilMonkeyImage = Math.floor(Math.random()*1)+1;
-	if(chooseEvilMonkeyImage === 1)
-		{
-		evilMonkey = new Image();
-		evilMonkey.src = "images/evilMonkey.png";
-		}
-	else if(chooseEvilMonkeyImage === 2)
-		{
-		evilMonkey = new Image();
-		evilMonkey.src = "images/monkeyBoss.jpeg";
-		}
+
 	ctx.drawImage(evilMonkey, evilMonkeyPosX, evilMonkeyPosY)
 
 	}
@@ -100,6 +100,7 @@ function banannaS(x, y)   //this draws the square
 		(x + mx == evilMonkeyPosX - banannaWidth ||
 		x + mx == evilMonkeyPosX + evilMonkeyWidth))
 		{
+
 		evilMonkeyPosX = Math.floor((Math.random()*350 - evilMonkeyWidth) + 350);
 		evilMonkeyPosY = Math.floor(Math.random()*310 - evilMonkeyHeight) + evilMonkeyHeight;
 		mx = -mx;
